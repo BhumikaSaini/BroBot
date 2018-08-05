@@ -1,47 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    tools:context=".MainActivity">
 
     <ScrollView
+        android:id="@+id/messagesContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/user_input_field_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
+            android:id="@+id/conversationMsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/conversationMsg"
-            android:textSize="16sp"
-            />
+            android:padding="16dp"
+            android:text="Message Text Goes Here..."
+            android:textSize="16sp" />
+
+        <!--RecyclerView-->
     </ScrollView>
 
-    <RelativeLayout
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/user_input_field_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/user_input_field">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Your Message"
             android:id="@+id/user_input"
-            android:inputType="textShortMessage"/>
-        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/round_background_input"
+            android:hint="Type a message"
+            android:inputType="textShortMessage|textMultiLine"
+            android:maxLines="4"
+            android:minLines="1"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/send_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SEND"
-            android:layout_below="@id/user_input"/>
-    </RelativeLayout>
+            android:layout_below="@id/user_input"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/round_button"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_send_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
-    </LinearLayout>
-
-</ScrollView>
+</android.support.constraint.ConstraintLayout>
