@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BroBot</string>
-    <string name="username">username</string>
-    <string name="password">password</string>
+
+    <!--Ideally shouldnt be here-->
+    <string name="api_key">-CvEiK7cbxMmLumaCL6XOn-uSweZobsMGFUXF0WwR5dh</string>
+    <string name="workspace_id">c72e9072-f3c8-4e67-8b54-961944fe5e39</string>
 </resources>
